@@ -1,0 +1,47 @@
+# Ryoko Pro
+
+> Ryoko Pro is a pocket-sized WiFi router with its own SIM card inside it. The seller states it connects automatically to the closest tower across **133 countries** with **no roaming fees**, carries **up to 10 devices** at once, reaches **up to 150 Mb/s**, runs **up to 8 hours** per charge and recharges over USB-C with a cable supplied in the box. The SIM arrives carrying **500MB of global data free**; after that the order page advertises unlimited data at **$0.66 a day**. Three features switch on from the device screen — an ad blocker (which also blocks known malware distribution sites and phishing domains, from a block list drawn from over two dozen hand-curated lists), a data saver and content control — and because they run at the router they cover every connected device. Pricing runs **$89.00 for one router, $138.00 for two, $177.00 for three and $220.00 for four** — $89, $69, $59 and $55 per device, every tier exactly 70% off its own reference price of $296.67, $460.00, $590.00 and $733.33. Standard shipping is **$5.95** in the United States. The checkout advertises a **30-day money-back satisfaction guarantee**; the support site separately documents a 60-day return window for unopened packages with the customer paying return postage.
+
+A single page about Ryoko Pro written for buyers in the United States and last checked on 20 November 2026. Specifications came from the official Ryoko Pro listing, every price and the shipping cost from its checkout, and the return, refund and warranty terms from the seller's own support documentation. Each discount was recalculated against the reference price shown for that quantity rather than copied across. It is not a review: no score, no star rating, no verdict, and no rating markup in the structured data. The three customer reviews shown are the seller's published material, reproduced and labelled as such. Purchase links are paid affiliate links and the buyer's total is unaffected.
+
+## What a Ryoko Pro is
+
+- [What a Ryoko Pro actually is](https://us-ryoko.vercel.app/#what): The difference between borrowing a network and owning one, and what follows from carrying your own SIM.
+- [Ryoko Pro specifications at a glance](https://us-ryoko.vercel.app/#spec): 133 countries, 10 devices, 8 hours and 150 Mb/s, with what each figure means in use.
+- [Three Ryoko Pro switches on the device screen](https://us-ryoko.vercel.app/#switches): Ads Blocker, Data Saver and Content Control, all applied at the router rather than per device.
+- [Ten devices on a single Ryoko Pro](https://us-ryoko.vercel.app/#group): Why the ten-device ceiling changes the arithmetic for families and working groups.
+- [A Ryoko Pro in the hand](https://us-ryoko.vercel.app/#build): Pocket-sized, wire-free, two buttons, and a screen that states the connection status in words.
+- [Ryoko Pro terms explained](https://us-ryoko.vercel.app/#terms): Seven definitions including mobile hotspot, roaming, reference price, top-up and original condition.
+
+## Cost and buying
+
+- [Ryoko Pro prices, all four quantities](https://us-ryoko.vercel.app/#fares): $89.00, $138.00, $177.00 and $220.00 — per-device price, total, reference price and saving for each.
+- [A Ryoko Pro against your carrier's roaming rates](https://us-ryoko.vercel.app/#roaming): FCC warnings on roaming rates, background downloads and charges that land a billing cycle late.
+- [The SIM inside a Ryoko Pro and what data costs](https://us-ryoko.vercel.app/#sim): 500MB free on arrival, top-ups at $0.66 a day, and why a third-party SIM voids warranty cover.
+- [Ordering a Ryoko Pro: shipping and payment](https://us-ryoko.vercel.app/#ordering): $5.95 standard shipping, PayPal and four card networks, one payment with nothing recurring.
+- [A Ryoko Pro against a local SIM or a roaming add-on](https://us-ryoko.vercel.app/#versus): Three approaches compared, with what each one wins and gives up.
+
+## Using and living with it
+
+- [Setting up a Ryoko Pro, step by step](https://us-ryoko.vercel.app/#setup): Press the power button, scan the QR code, then browse — with nothing to install.
+- [The 133 countries a Ryoko Pro reaches](https://us-ryoko.vercel.app/#coverage): The seven regions the listing names, and what a coverage count does and does not promise.
+- [Ryoko Pro battery life and charging](https://us-ryoko.vercel.app/#power): Eight hours per charge over USB-C, plus the warranty's exclusion of battery capacity loss over time.
+- [Who a Ryoko Pro is for](https://us-ryoko.vercel.app/#who): Six situations the listing names, and three where something else is the better answer.
+
+## Honesty, safety and limits
+
+- [What a Ryoko Pro does and does not protect](https://us-ryoko.vercel.app/#security): What a private network genuinely fixes, and the FTC's position that encryption — not the network — protects your traffic.
+- [Where a Ryoko Pro falls short](https://us-ryoko.vercel.app/#limits): It cannot create signal, 500MB is a starter, "up to" means up to, there are two return policies, and data costs are separate from the device.
+- [Ryoko Pro guarantee, returns and warranty](https://us-ryoko.vercel.app/#guarantee): The 30-day money-back guarantee, the separately documented 60-day unopened window, and every warranty exclusion.
+- [Ryoko Pro reviews published by the seller](https://us-ryoko.vercel.app/#voices): Three customer reviews reproduced from the official listing and labelled as the seller's own material.
+- [Ryoko Pro support and contact details](https://us-ryoko.vercel.app/#contact): The published US telephone number +1 (443) 456-4433, a contact form and a support site.
+- [Ryoko Pro questions, answered from the listing](https://us-ryoko.vercel.app/#questions): Ten questions answered from the official site, matching the FAQPage structured data on the page.
+- [How this Ryoko Pro page was researched](https://us-ryoko.vercel.app/#sources): Which source every claim came from, and the affiliate arrangement behind the buttons.
+
+## External references
+
+- [FCC: international roaming — using your mobile phone in other countries](https://www.fcc.gov/sites/default/files/international_roaming_-_using_your_mobile_phone_in_other_countries.pdf): Why roaming rates run higher abroad, how background downloads create charges, and the advice to use Wi-Fi spots.
+- [FTC: are public Wi-Fi networks safe?](https://consumer.ftc.gov/articles/are-public-wi-fi-networks-safe-what-you-need-to-know): The current position that widespread encryption makes public Wi-Fi usually safe, and what to check instead.
+- [FTC: tips on using VPN apps](https://www.ftc.gov/news-events/news/press-releases/2018/02/ftc-provides-tips-using-vpn-apps): What a VPN app can shield, and the four things to check before installing one.
+- [CISA: best practices for using public Wi-Fi](https://www.cisa.gov/resources-tools/resources/best-practices-using-public-wi-fi-tip-card): The warning that convenient public hotspots are not always secure.
+- [NSA: securing wireless devices in public settings](https://www.nsa.gov/Press-Room/Digital-Media-Center/Document-Gallery/igphoto/2002815141/): Guidance on identifying vulnerable public connections and the risk to data, credentials and devices.

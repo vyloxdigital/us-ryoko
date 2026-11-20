@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://us-ryoko.vercel.app/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro-wifi.webp</image:loc>
+      <image:title>Ryoko Pro portable WiFi router</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro.webp</image:loc>
+      <image:title>Ryoko Pro router</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro-review-1.webp</image:loc>
+      <image:title>Ryoko Pro customer review published by the seller</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro-review-2.webp</image:loc>
+      <image:title>Ryoko Pro customer review published by the seller</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro-review-3.webp</image:loc>
+      <image:title>Ryoko Pro customer review published by the seller</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://us-ryoko.vercel.app/images/ryoko-pro-guarantee.webp</image:loc>
+      <image:title>Ryoko Pro guarantee</image:title>
+    </image:image>
+  </url>
+</urlset>

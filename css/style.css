@@ -1,0 +1,394 @@
+/* ===========================================================
+   Ryoko Pro — us-ryoko.vercel.app
+   Design system: "travel document".
+   The product photograph has two readings: the black glass of the
+   screen, and the silver-white chassis around it. This page takes
+   the chassis — a pale silver ground, square corners, ruled and
+   dashed borders, and the hero built as a boarding-pass panel with
+   a tear-off stub. Volt green is the single accent, carried from
+   the device's status indicator.
+   Display: Familjen Grotesk (variable). Body: Red Hat Text (variable).
+   =========================================================== */
+
+/* ---- 1. Self-hosted variable fonts + metric-matched fallbacks ---- */
+@font-face{
+  font-family:"Familjen";
+  src:url("/fonts/familjen.woff2") format("woff2-variations");
+  font-weight:400 700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"RedHat";
+  src:url("/fonts/redhat.woff2") format("woff2-variations");
+  font-weight:300 700;font-style:normal;font-display:swap;
+}
+/* Fallback metrics computed from each font's average lowercase advance
+   against Arial, so the stand-in occupies identical space and cumulative
+   layout shift stays at zero through the swap. */
+@font-face{
+  font-family:"Familjen Fallback";src:local("Arial");
+  size-adjust:110.18%;ascent-override:93.03%;descent-override:20.42%;
+}
+@font-face{
+  font-family:"RedHat Fallback";src:local("Arial");
+  size-adjust:106.17%;ascent-override:95.88%;descent-override:28.73%;
+}
+
+/* ---- 2. Tokens ---- */
+:root{
+  /* Silver chassis */
+  --pearl:#f4f6f3;
+  --pearl-2:#e8ece6;
+  --white:#ffffff;
+
+  /* Carbon */
+  --carbon:#101410;
+  --carbon-2:#1b211b;
+  --slate:#4b534b;
+  --slate-2:#5c655c;
+
+  /* Volt, from the device's status indicator.
+     --volt is FILL-ONLY on light (1.55 against pearl) and text on dark
+     (11.05 against carbon). --volt-d is the light-ground accent text. */
+  --volt:#8ddc4e;
+  --volt-d:#356b12;
+  --volt-l:#bdf186;
+
+  --line:#dbe1d8;
+  --line-2:#c7cfc3;
+  --line-d:#2d352d;
+
+  --display:"Familjen","Familjen Fallback",system-ui,sans-serif;
+  --text:"RedHat","RedHat Fallback",system-ui,sans-serif;
+
+  --read:40rem;
+  --wide:84rem;
+  --gap:clamp(3.2rem,6.5vw,5.4rem);
+}
+
+/* ---- 3. Reset and base ---- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--pearl);color:var(--slate);
+  font-family:var(--text);font-size:clamp(1.0625rem,.4vw + 1rem,1.15rem);
+  line-height:1.68;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+a{color:var(--volt-d);text-underline-offset:.18em;text-decoration-thickness:.07em}
+a:hover{color:var(--carbon)}
+:focus-visible{outline:3px solid var(--volt-d);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display);color:var(--carbon);line-height:1.1;
+  letter-spacing:-.018em;margin:0;font-weight:600}
+h1{font-size:clamp(2.1rem,5vw,3.3rem);font-weight:700;letter-spacing:-.03em}
+h2{font-size:clamp(1.6rem,3.1vw,2.3rem)}
+h3{font-size:clamp(1.08rem,1.4vw,1.24rem);font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 1.1em}
+b,strong{font-weight:700;color:var(--carbon)}
+ul,ol{margin:0 0 1.1em;padding-left:1.15em}
+li{margin:0 0 .5em}
+
+.hold{width:min(var(--wide),100% - 3.2rem);margin-inline:auto}
+.leap{position:absolute;left:-9999px}
+.leap:focus{position:static;display:inline-block;margin:.6rem;padding:.6rem 1rem;
+  background:var(--carbon);color:var(--volt)}
+
+/* ---- 4. Masthead ---- */
+.top{position:sticky;top:0;z-index:40;background:var(--pearl);
+  border-bottom:1px solid var(--line-2)}
+.top .hold{display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;min-height:4.2rem}
+.mark{font-family:var(--display);font-weight:700;font-size:1.04rem;
+  color:var(--carbon);text-decoration:none;white-space:nowrap;letter-spacing:-.015em}
+.mark i{font-style:normal;color:var(--volt-d)}
+.nav{display:flex;align-items:center;gap:1.35rem}
+.nav a{font-family:var(--display);font-size:.875rem;font-weight:500;
+  color:var(--slate);text-decoration:none}
+.nav a:hover{color:var(--carbon)}
+/* `.nav a` is (0,1,1) and `.btn` only (0,1,0): without these partners the
+   navigation link colour out-ranks the button colour. Variant overrides go
+   last, at matching or higher specificity. */
+.nav a.btn{color:var(--carbon)}
+.nav a.btn:hover{color:var(--carbon)}
+.nav-btn{display:none;font-family:var(--display);font-size:.9rem;font-weight:550;
+  background:none;border:1px solid var(--line-2);padding:.45rem .8rem;color:var(--carbon)}
+#nav-panel{display:contents}
+
+/* ---- 5. Buttons. Square, like everything else on this page. ---- */
+.btn{display:inline-block;font-family:var(--display);font-weight:650;font-size:.95rem;
+  text-decoration:none;padding:.88rem 1.6rem;
+  background:var(--volt);color:var(--carbon);border:1px solid var(--volt);
+  transition:background .14s ease,border-color .14s ease}
+.btn:hover{background:var(--volt-l);border-color:var(--volt-l);color:var(--carbon)}
+.btn--ghost{background:transparent;color:var(--carbon);border-color:var(--line-2)}
+.btn--ghost:hover{background:var(--white);color:var(--carbon);border-color:var(--carbon)}
+.btn--sm{padding:.6rem 1.1rem;font-size:.87rem}
+
+/* ---- 6. Opening: a boarding-pass panel with a tear-off stub ---- */
+.board{padding:clamp(2rem,4.5vw,3.4rem) 0 clamp(2.2rem,4vw,3rem)}
+.pass{background:var(--white);border:1px solid var(--line-2);
+  display:grid;grid-template-columns:1.35fr .65fr}
+.pass-main{padding:clamp(1.8rem,3.6vw,3rem)}
+.pass h1{margin:0 0 1rem;max-width:17ch}
+.pass h1 i{font-style:normal;color:var(--volt-d)}
+.pass .lede{font-size:clamp(1.08rem,1.25vw,1.22rem);color:var(--slate);
+  max-width:36rem;margin:0 0 1.6rem}
+
+/* The perforation. A dashed rule, as on a real ticket stub. */
+.pass-stub{border-left:2px dashed var(--line-2);padding:clamp(1.6rem,3vw,2.4rem);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:var(--pearl)}
+.pass-stub img{width:auto;max-width:100%;height:auto;max-height:min(52vh,24rem);
+  margin-inline:auto}
+.pass-stub figcaption{font-family:var(--display);font-size:.76rem;color:var(--slate-2);
+  margin-top:.9rem;text-align:center;line-height:1.45}
+
+/* Ticket-style field row: small label above a value. */
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border-top:1px solid var(--line);margin:0 0 1.7rem}
+.fields > div{background:var(--white);padding:.9rem 1rem}
+.fields dt{font-family:var(--display);font-size:.7rem;font-weight:600;
+  color:var(--slate-2);letter-spacing:.04em;margin:0 0 .3rem}
+.fields dd{margin:0;font-family:var(--display);font-weight:650;color:var(--carbon);
+  font-size:1.02rem;line-height:1.2}
+
+.board-go{display:flex;flex-wrap:wrap;gap:.7rem;margin:0 0 .9rem}
+.board .fine{font-family:var(--display);font-size:.8rem;color:var(--slate-2);
+  margin:0;max-width:40rem;line-height:1.55}
+
+/* ---- 7. Section shell ---- */
+.block{padding:var(--gap) 0;border-top:1px solid var(--line-2);scroll-margin-top:5rem}
+.block > .hold{text-align:center}
+.label{font-family:var(--display);font-size:.78rem;font-weight:600;
+  color:var(--volt-d);display:block;margin:0 0 .75rem}
+.block h2{margin:0 auto .85rem;max-width:23ch}
+.open-p{font-size:1.06rem;color:var(--slate);max-width:var(--read);margin:0 auto 2rem}
+.block p{max-width:var(--read);margin-left:auto;margin-right:auto}
+.block .foot-note{font-family:var(--display);font-size:.87rem;color:var(--slate-2);
+  max-width:44rem;margin:1.9rem auto 0;line-height:1.58}
+
+.block--white{background:var(--white)}
+.block--tint{background:var(--pearl-2)}
+/* Dark band: background and every text override share one class, so a dark
+   band can never inherit the light-ground ink colours. */
+.block--dark{background:var(--carbon);border-top-color:var(--line-d)}
+.block--dark h2,.block--dark h3,.block--dark h4,.block--dark b,.block--dark strong{color:var(--white)}
+.block--dark p,.block--dark li,.block--dark dd{color:#c4ccc2}
+.block--dark .open-p{color:#d6ddd3}
+.block--dark .label{color:var(--volt)}
+.block--dark .foot-note{color:#98a296}
+.block--dark a{color:var(--volt)}
+.block--dark a:hover{color:var(--volt-l)}
+.block--dark a.btn{color:var(--carbon)}
+.block--dark .cells > div,.block--dark .route > li,.block--dark .dots > div,
+.block--dark .panel{border-color:var(--line-d)}
+.block--dark .panel{background:var(--carbon-2)}
+
+/* ---- 8. Four bordered specification cells ---- */
+.cells{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-2);
+  border:1px solid var(--line-2);max-width:72rem;margin:0 auto;text-align:left}
+.cells > div{background:var(--white);padding:1.6rem 1.5rem}
+.cells b{display:block;font-family:var(--display);font-weight:700;color:var(--carbon);
+  font-size:clamp(1.8rem,3.4vw,2.4rem);line-height:1;letter-spacing:-.035em}
+.cells .unit{font-size:.95rem;font-weight:600;color:var(--volt-d);margin-left:.15rem}
+.cells span.k{display:block;font-family:var(--display);font-size:.76rem;font-weight:600;
+  color:var(--slate-2);margin:.55rem 0 .7rem;letter-spacing:.03em}
+.cells p{margin:0;max-width:none;font-size:.96rem;line-height:1.56}
+.block--dark .cells{background:var(--line-d);border-color:var(--line-d)}
+.block--dark .cells > div{background:var(--carbon-2)}
+
+/* ---- 9. Bordered feature panels with a volt top rule ---- */
+.panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+  max-width:72rem;margin:0 auto;text-align:left}
+.panel{background:var(--white);border:1px solid var(--line-2);
+  border-top:3px solid var(--volt);padding:1.6rem 1.5rem}
+.panel h3{margin:0 0 .5rem}
+.panel p{margin:0;max-width:none;font-size:.98rem}
+
+/* ---- 10. Vertical route: numbered steps on a connecting line ---- */
+.route{list-style:none;padding:0;margin:0 auto;max-width:46rem;text-align:left;
+  position:relative}
+.route::before{content:"";position:absolute;left:1.1rem;top:1.4rem;bottom:1.4rem;
+  width:2px;background:var(--line-2)}
+.route > li{position:relative;padding:0 0 1.9rem 3.6rem;margin:0}
+.route > li:last-child{padding-bottom:0}
+.route .pin{position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;
+  border-radius:50%;background:var(--volt);color:var(--carbon);
+  font-family:var(--display);font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center}
+.route h3{margin:.2rem 0 .35rem}
+.route p{margin:0;max-width:34rem;font-size:1rem}
+.block--dark .route::before{background:var(--line-d)}
+
+/* ---- 11. Dotted-leader definition rows, as on a ticket ---- */
+.dots{max-width:60rem;margin:0 auto;text-align:left}
+.dots > div{display:grid;grid-template-columns:15rem 1fr;gap:.8rem 2rem;
+  padding:1.2rem 0;border-bottom:1px dotted var(--line-2)}
+.dots > div:first-child{border-top:1px dotted var(--line-2)}
+.dots dt,.dots .k2{margin:0;font-family:var(--display);font-weight:600;
+  color:var(--carbon);font-size:1rem;line-height:1.35}
+.dots dd,.dots .v{margin:0;max-width:42rem}
+.block--dark .dots dt,.block--dark .dots .k2{color:var(--white)}
+.block--dark .dots > div{border-bottom-color:var(--line-d)}
+.block--dark .dots > div:first-child{border-top-color:var(--line-d)}
+
+/* ---- 11b. Fare table. Four quantities, priced like ticket classes. ---- */
+.fares{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-2);
+  border:1px solid var(--line-2);max-width:72rem;margin:0 auto;text-align:left}
+.fares > div{background:var(--white);padding:1.5rem 1.4rem;display:flex;
+  flex-direction:column;gap:.5rem}
+.fares .cls{font-family:var(--display);font-size:.72rem;font-weight:700;
+  color:var(--slate-2);letter-spacing:.05em;margin:0}
+.fares .unit{font-family:var(--display);font-weight:700;color:var(--carbon);
+  font-size:clamp(1.8rem,3.3vw,2.3rem);line-height:1;letter-spacing:-.035em;margin:0}
+.fares .unit small{display:block;font-size:.73rem;font-weight:600;color:var(--slate-2);
+  letter-spacing:.02em;margin-top:.4rem}
+.fares .sum{margin:0;font-size:.95rem;max-width:none;line-height:1.5}
+.fares .ref{text-decoration:line-through;color:var(--slate-2)}
+.fares .cut{font-family:var(--display);font-weight:650;color:var(--volt-d);
+  font-size:.86rem;margin:0}
+.fares .btn{margin-top:auto;text-align:center}
+/* The picked class inverts to carbon, the way a boarding pass highlights
+   the fare you actually bought. */
+.fares > div.pick{background:var(--carbon)}
+.fares > div.pick .cls{color:var(--volt)}
+.fares > div.pick .unit{color:var(--white)}
+.fares > div.pick .unit small{color:#98a296}
+.fares > div.pick .sum{color:#c4ccc2}
+.fares > div.pick .ref{color:#8d968b}
+.fares > div.pick .cut{color:var(--volt)}
+
+/* ---- 12. Use-case tiles ---- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-2);
+  border:1px solid var(--line-2);max-width:68rem;margin:0 auto;text-align:left}
+.tiles > div{background:var(--white);padding:1.5rem 1.4rem}
+.tiles h3{margin:0 0 .4rem;font-size:1.02rem}
+.tiles p{margin:0;max-width:none;font-size:.95rem;line-height:1.55}
+
+/* ---- 13. Caution block with a volt rule ---- */
+.caution{max-width:56rem;margin:0 auto;text-align:left;background:var(--white);
+  border:1px solid var(--line-2);border-left:4px solid var(--volt);padding:1.5rem 1.7rem}
+.caution + .caution{margin-top:1rem}
+.caution h3{margin:0 0 .45rem}
+.caution p{margin:0;max-width:46rem;font-size:1rem}
+.block--dark .caution{background:var(--carbon-2);border-color:var(--line-d);
+  border-left-color:var(--volt)}
+
+/* ---- 14. Reviews, stacked rather than gridded ---- */
+.proof{max-width:62rem;margin:0 auto;display:grid;gap:1.4rem}
+.proof figure{margin:0;display:grid;grid-template-columns:1fr 1.1fr;gap:1.6rem;
+  align-items:center;background:var(--white);border:1px solid var(--line-2);
+  padding:1.3rem}
+.proof figure:nth-child(even){grid-template-columns:1.1fr 1fr}
+.proof figure:nth-child(even) img{order:2}
+.proof img{width:100%;height:auto;max-height:26rem;object-fit:contain;
+  border:1px solid var(--line)}
+.proof figcaption{font-family:var(--display);font-size:.9rem;color:var(--slate-2);
+  text-align:left;line-height:1.55}
+
+/* ---- 15. Inline CTA ---- */
+.ask{max-width:60rem;margin:2.4rem auto 0;padding-top:1.5rem;
+  border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;
+  align-items:center;justify-content:center;gap:.9rem 1.4rem;text-align:center}
+.ask p{margin:0;max-width:30rem;font-family:var(--display);font-size:.95rem;
+  color:var(--carbon)}
+.block--dark .ask{border-top-color:var(--line-d)}
+.block--dark .ask p{color:var(--white)}
+
+/* ---- 16. Figures ---- */
+.shot{max-width:46rem;margin:2.2rem auto 0}
+.shot img{width:auto;max-width:100%;height:auto;max-height:28rem;margin-inline:auto}
+.shot figcaption{font-family:var(--display);font-size:.8rem;color:var(--slate-2);
+  margin-top:.8rem;text-align:center}
+.block--dark .shot figcaption{color:#98a296}
+
+/* ---- 17. Index ---- */
+.jump{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;
+  max-width:70rem;margin:2.2rem auto 0}
+.jump a{font-family:var(--display);font-size:.81rem;text-decoration:none;
+  color:var(--slate);border:1px solid var(--line-2);padding:.32rem .74rem;
+  background:var(--white)}
+.jump a:hover{color:var(--carbon);border-color:var(--carbon)}
+
+/* ---- 18. Footer ---- */
+.base{background:var(--carbon);color:#c4ccc2;padding:clamp(3rem,6vw,4rem) 0 2.2rem;
+  font-size:.95rem}
+.base .hold{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.2rem}
+.base .mark{color:var(--white)}
+.base .mark i{color:var(--volt)}
+.base h2{font-size:.94rem;color:var(--white);margin:0 0 .75rem;font-weight:600;
+  letter-spacing:0}
+.base p{margin:.85rem 0 0;color:#98a296;max-width:30rem;line-height:1.58}
+.base ul{list-style:none;padding:0;margin:0}
+.base li{margin:0 0 .5rem}
+.base a{color:#c4ccc2;text-decoration:none}
+.base a:hover{color:var(--volt);text-decoration:underline}
+.base .small{grid-column:1/-1;border-top:1px solid var(--line-d);padding-top:1.6rem;
+  margin-top:.5rem}
+.base .small p{font-size:.82rem;color:#98a296;max-width:none;line-height:1.62;
+  margin:0 0 .7rem}
+.base .small strong{color:var(--white)}
+.base .small a{color:#b2bbaf;text-decoration:underline}
+
+/* ---- 19. Sticky order bar ---- */
+.rail{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--carbon);
+  border-top:1px solid var(--line-d);padding:.68rem 1rem;
+  transform:translateY(105%);transition:transform .22s ease}
+.rail.on{transform:translateY(0)}
+.rail a{display:block;max-width:34rem;margin-inline:auto;text-align:center}
+
+/* ---- 20. Responsive ----
+   Variant overrides sit LAST at matching-or-higher specificity, so no base
+   rule can out-rank a mobile override. */
+@media (max-width:1040px){
+  .cells{grid-template-columns:repeat(2,1fr)}
+  .fares{grid-template-columns:repeat(2,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .panels{grid-template-columns:1fr;max-width:46rem}
+  .dots > div{grid-template-columns:13rem 1fr}
+}
+@media (max-width:860px){
+  .nav-btn{display:inline-block}
+  #nav-panel{display:none;position:absolute;left:0;right:0;top:100%;
+    background:var(--pearl);border-bottom:1px solid var(--line-2);
+    padding:.8rem 1.3rem 1.2rem}
+  #nav-panel.open{display:block}
+  .nav{flex-direction:column;align-items:stretch;gap:0}
+  .nav a{padding:.66rem 0;border-bottom:1px solid var(--line);font-size:.98rem}
+  .nav a:last-child{border-bottom:0}
+  .nav .btn{margin-top:.8rem;text-align:center}
+  .top .hold{position:relative}
+
+  /* The stub tears off and sits underneath, with the perforation running
+     across instead of down. */
+  .pass{grid-template-columns:1fr}
+  .pass-stub{border-left:0;border-top:2px dashed var(--line-2);
+    padding:1.6rem 1.3rem}
+  .pass-stub img{max-height:17rem}
+  .fields{grid-template-columns:repeat(2,1fr)}
+
+  .cells{grid-template-columns:1fr}
+  .fares{grid-template-columns:1fr;max-width:28rem}
+  .tiles{grid-template-columns:1fr}
+  .dots > div{grid-template-columns:1fr;gap:.4rem;padding:1.1rem 0}
+  .dots dd,.dots .v{max-width:none}
+  .route > li{padding-left:3.2rem}
+
+  .proof figure,.proof figure:nth-child(even){grid-template-columns:1fr;gap:1.1rem}
+  .proof figure:nth-child(even) img{order:0}
+  .proof img{max-height:22rem}
+
+  .base .hold{grid-template-columns:1fr;gap:1.8rem}
+}
+@media (max-width:460px){
+  .hold{width:min(var(--wide),100% - 2rem)}
+  .board-go{flex-direction:column;align-items:stretch}
+  .board-go .btn{text-align:center}
+  .fields{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rail{transition:none}
+}
